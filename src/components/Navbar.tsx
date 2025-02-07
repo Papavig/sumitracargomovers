@@ -35,36 +35,38 @@ const Navbar = () => {
 
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
+            <a href="/">
             <img
               className="h-8 w-auto"
               src={Logo}
               alt="Company Logo"
             />
+            </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             <a 
               href="/" 
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-destructive transition-colors duration-200"
             >
               Home
             </a>
             <a 
               href="/services" 
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-destructive transition-colors duration-200"
             >
               Services
             </a>
             <a
               href="/about"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
             >
               About Us
             </a>
             <a 
               href="/contact" 
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-destructive transition-colors duration-200"
             >
               Contact Us
             </a>
@@ -73,7 +75,7 @@ const Navbar = () => {
           {/* Mobile Call Button */}
           <div className="flex items-center md:hidden">
             <a
-              href="tel:+1234567890"
+              href="tel:+917039001002"
               className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
             >
               <Phone size={16} className="mr-4" />
@@ -91,25 +93,25 @@ const Navbar = () => {
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
             <a
               href="/"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
             >
               Home
             </a>
             <a
               href="/services"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
             >
               Services
             </a>
             <a
               href="/about"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
             >
               About Us
             </a>
             <a
               href="/contact"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
             >
               Contact Us
             </a>

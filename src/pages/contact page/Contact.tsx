@@ -1,7 +1,8 @@
-import QuoteSection from "./QuoteSection"
-import ContactSection from "./ContactSection"
-import Navbar from "@/components/Navbar"
+import QuoteSection from "./QuoteSection";
+import ContactSection from "./ContactSection";
+import Navbar from "@/components/Navbar";
 import PackersMovers from "../extras/PackersMovers/PackersMovers";
+import Footer from "@/components/Footer";
 
 const inMumbaiLocations = [
   "Packers And Movers In Ghansoli- Mumbai",
@@ -43,17 +44,18 @@ const fromMumbaiLocations = [
 ];
 
 export default function Contact() {
-  return (<>  
-  <Navbar />
-    <div className="min-h-screen bg-background">
-      <QuoteSection />
-      <ContactSection />
-      <div className="flex flex-col md:flex-row gap-4 mt-8">
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <div className="flex-grow bg-background">
+        <QuoteSection />
+        <ContactSection />
+        <div className="flex flex-col md:flex-row gap-4 mt-8 mb-12">
           <PackersMovers title="In Mumbai:" locations={inMumbaiLocations} />
           <PackersMovers title="From Mumbai:" locations={fromMumbaiLocations} />
+        </div>
       </div>
+      <Footer />
     </div>
-    </>
-  )
+  );
 }
-

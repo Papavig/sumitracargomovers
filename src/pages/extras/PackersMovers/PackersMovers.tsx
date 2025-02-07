@@ -11,7 +11,7 @@ interface PackersMoversProps {
           {locations.map((location, index) => (
             <p
               key={index}
-              className="text-sm py-1 hover:text-blue-500 cursor-pointer transition"
+              className="text-sm py-1 hover:text-destructive cursor-pointer transition"
             >
               {location}
             </p>
