@@ -76,7 +76,7 @@ const Navbar = () => {
           <div className="flex items-center md:hidden">
             <a
               href="tel:+917039001002"
-              className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+              className="inline-flex items-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-[#0f8183] hover:bg-[#0f8183]/80 focus:outline-none"
             >
               <Phone size={16} className="mr-4" />
               Call
