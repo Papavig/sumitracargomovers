@@ -1,7 +1,12 @@
 export default function CompanyOverview() {
   return (
     <section className="relative py-20 overflow-hidden">
-      <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover">
+      <video
+        autoPlay
+        loop
+        muted
+        className="absolute inset-0 w-full h-full object-cover"
+      >
         <source src="/moving-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
@@ -11,9 +16,13 @@ export default function CompanyOverview() {
             <div>
               <h2 className="text-3xl font-bold mb-4">About the Company</h2>
               <p className="text-lg">
-                Sumitra Cargo Movers is a leading packers and movers company, dedicated to providing exceptional
-                relocation services. With our expertise and commitment to quality, we ensure a smooth and stress-free
-                moving experience for our clients.
+                Welcome to Sumitra Cargo Movers - Your Trusted Partner in
+                Seamless Logistics! At Sumitra Cargo Movers, we take pride in
+                being a leading name in the world of logistics, providing
+                unparalleled services that redefine the way you experience cargo
+                moving and packing. Our journey is rooted in a commitment to
+                excellence, customer satisfaction, and innovative solutions that
+                make logistics not just a service but an experience.
               </p>
             </div>
             <div className="relative h-64 md:h-full">
@@ -28,9 +37,11 @@ export default function CompanyOverview() {
             <div className="md:order-2">
               <h2 className="text-3xl font-bold mb-4">Our Story</h2>
               <p className="text-lg">
-                Founded in 2000, Sumitra Cargo Movers has grown from a small local mover to a nationwide relocation
-                expert. Our journey is marked by continuous improvement, expansion of services, and a growing list of
-                satisfied customers.
+                Established with a vision to revolutionize the logistics
+                industry, Sumitra Cargo Movers has grown into a powerhouse of
+                tech-driven solutions. Our story is woven with dedication,
+                reliability, and a relentless pursuit of perfection in every
+                service we offer.
               </p>
             </div>
             <div className="relative h-64 md:h-full md:order-1">
@@ -45,9 +56,10 @@ export default function CompanyOverview() {
             <div>
               <h2 className="text-3xl font-bold mb-4">Our Commitments</h2>
               <p className="text-lg">
-                At Sumitra Cargo Movers, we are committed to excellence, integrity, and customer satisfaction. We
-                prioritize the safety of your belongings, timely delivery, and transparent communication throughout the
-                moving process.
+                At Sumitra Cargo Movers, our commitment goes beyond moving
+                goods; it's about moving experiences. We prioritize customer
+                satisfaction, offering a customer-centric approach that
+                personalizes our services to match your requirements.
               </p>
             </div>
             <div className="relative h-64 md:h-full">
@@ -61,6 +73,5 @@ export default function CompanyOverview() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-

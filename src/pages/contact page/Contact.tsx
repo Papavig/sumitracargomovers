@@ -1,7 +1,7 @@
 import QuoteSection from "./QuoteSection";
 import ContactSection from "./ContactSection";
 import Navbar from "@/components/Navbar";
-import PackersMovers from "../extras/PackersMovers/PackersMovers";
+import PackersMovers from "../PackersMovers/PackersMovers";
 import Footer from "@/components/Footer";
 
 const inMumbaiLocations = [

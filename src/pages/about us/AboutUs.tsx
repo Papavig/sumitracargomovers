@@ -1,15 +1,15 @@
-import HeroSection from "./Herosection"
-import CompanyOverview from "./CompanyOverview"
-import StatsCounter from "@/components/StatsCounter"
-import WhatSetsUsApart from "./WhatSetsUsApart"
-import Testimonials from "@/components/Testimonials"
-import Navbar from "@/components/Navbar"
-import PackersMovers from "../extras/PackersMovers/PackersMovers"
-import Footer from "@/components/Footer"
-import ContactSection from "../contact page/ContactSection"
+import HeroSection from "./Herosection";
+import CompanyOverview from "./CompanyOverview";
+import StatsCounter from "@/components/StatsCounter";
+import WhatSetsUsApart from "./WhatSetsUsApart";
+import Testimonials from "@/components/Testimonials";
+import Navbar from "@/components/Navbar";
+import PackersMovers from "../PackersMovers/PackersMovers";
+import Footer from "@/components/Footer";
+import ContactSection from "../contact page/ContactSection";
+import InfiniteScrollingServices from "@/components/InfiniteScrollingServices";
 
 export default function AboutUs() {
-
   const inMumbaiLocations = [
     "Packers And Movers In Ghansoli- Mumbai",
     "Packers And Movers In Seawoods- Mumbai",
@@ -29,7 +29,7 @@ export default function AboutUs() {
     "Packers And Movers In Taloja- Mumbai",
     "Packers And Movers In Vashi- Mumbai",
   ];
-  
+
   const fromMumbaiLocations = [
     "Packers And Movers from Mumbai to Bangalore",
     "Packers And Movers from Mumbai to Pune",
@@ -56,14 +56,14 @@ export default function AboutUs() {
       <CompanyOverview />
       <StatsCounter />
       <WhatSetsUsApart />
+      <InfiniteScrollingServices />
       <Testimonials />
       <ContactSection />
       <div className="flex flex-col md:flex-row gap-4 mt-8 mb-12">
-          <PackersMovers title="In Mumbai:" locations={inMumbaiLocations} />
-          <PackersMovers title="From Mumbai:" locations={fromMumbaiLocations} />
-        </div>
+        <PackersMovers title="In Mumbai:" locations={inMumbaiLocations} />
+        <PackersMovers title="From Mumbai:" locations={fromMumbaiLocations} />
+      </div>
       <Footer />
     </main>
-  )
+  );
 }
-

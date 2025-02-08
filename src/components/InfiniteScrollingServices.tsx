@@ -1,39 +1,67 @@
-import { motion } from "framer-motion"
+import React from 'react';
+import { motion } from 'framer-motion';
 
-const services = [
-  "🚚 Bike Transportation Service",
-  "📦 Storage Facility",
-  "🏢 Office Relocation Service",
-  "🏠 Home Shifting Service",
-]
+interface Service {
+  icon: string;
+  title: string;
+}
 
-export default function InfiniteScrollingServices() {
+interface ServiceCardProps extends Service {}
+
+const services: Service[] = [
+  {
+    icon: "🚚",
+    title: "Bike Transportation"
+  },
+  {
+    icon: "📦",
+    title: "Storage Facility"
+  },
+  {
+    icon: "🏢",
+    title: "Office Relocation"
+  },
+  {
+    icon: "🏠",
+    title: "Home Shifting"
+  }
+];
+
+const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title }) => (
+  <div className="inline-flex flex-col items-center w-64 mx-4 p-6 bg-white rounded-xl shadow-lg">
+    <span className="text-4xl mb-4">{icon}</span>
+    <h3 className="text-xl font-semibold">{title}</h3>
+  </div>
+);
+
+const InfiniteScrollingServices: React.FC = () => {
   return (
-    <section className="py-20 bg-muted overflow-hidden">
-      <div className="container mx-auto px-4 mb-8">
-        <h2 className="text-4xl font-bold text-center">Our Services</h2>
+    <section className="py-20 bg-gray-50 overflow-hidden">
+      <div className="container mx-auto px-4 mb-12">
+        <h2 className="text-4xl font-bold text-center mb-4">Our Services</h2>
       </div>
-      <div className="relative">
+      
+      <div className="relative w-full">
         <motion.div
           className="flex whitespace-nowrap"
-          animate={{ x: [0, -1920] }}
+          animate={{ x: "-100%" }}
           transition={{
             x: {
               repeat: Number.POSITIVE_INFINITY,
               repeatType: "loop",
-              duration: 20,
+              duration: 30,
               ease: "linear",
             },
           }}
         >
-          {[...services, ...services].map((service, index) => (
-            <div key={index} className="inline-block mx-8 text-2xl font-semibold">
-              {service}
-            </div>
+          {/* Double the services to ensure smooth infinite loop */}
+          {[...services, ...services, ...services, ...services].map((service, index) => (
+            <ServiceCard key={index} {...service} />
           ))}
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
 
+export default InfiniteScrollingServices;

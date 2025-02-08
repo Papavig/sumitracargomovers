@@ -64,6 +64,12 @@ const Navbar = () => {
             >
               About Us
             </a>
+            <a
+              href="/blog"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
+            >
+              Blogs
+            </a>
             <a 
               href="/contact" 
               className="text-gray-700 hover:text-destructive transition-colors duration-200"
@@ -108,6 +114,12 @@ const Navbar = () => {
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
             >
               About Us
+            </a>
+            <a
+              href="/blog"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
+            >
+              Blogs
             </a>
             <a
               href="/contact"

@@ -26,7 +26,7 @@ const features = [
 
 export default function WhatSetsUsApart() {
   return (
-    <section className="py-20 bg-muted">
+    <section className="py-20 bg-background/80">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">What Sets Us Apart</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
