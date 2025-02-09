@@ -29,11 +29,6 @@ const Footer: FC = () => {
               </a>
             </li>
             <li>
-              <a href="/services" className="hover:text-destructive transition">
-                Services
-              </a>
-            </li>
-            <li>
               <a href="/about" className="hover:text-destructive transition">
                 About Us
               </a>

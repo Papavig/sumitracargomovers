@@ -27,7 +27,7 @@ export default function CompanyOverview() {
             </div>
             <div className="relative h-64 md:h-full">
               <img
-                src="/placeholder.svg?height=300&width=400"
+                src="https://placehold.co/600x400"
                 alt="About Sumitra Cargo Movers"
                 className="object-cover rounded-lg bg-cover"
               />
@@ -46,7 +46,7 @@ export default function CompanyOverview() {
             </div>
             <div className="relative h-64 md:h-full md:order-1">
               <img
-                src="/placeholder.svg?height=300&width=400"
+                src="https://placehold.co/600x400"
                 alt="Sumitra Cargo Movers History"
                 className="object-cover rounded-lg bg-cover"
               />
@@ -64,7 +64,7 @@ export default function CompanyOverview() {
             </div>
             <div className="relative h-64 md:h-full">
               <img
-                src="/placeholder.svg?height=300&width=400"
+                src="https://placehold.co/600x400"
                 alt="Sumitra Cargo Movers Commitments"
                 className="object-cover rounded-lg bg-cover"
               />

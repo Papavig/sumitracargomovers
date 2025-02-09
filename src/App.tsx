@@ -3,7 +3,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/home page/Home";
 import ContactSection from "./pages/contact page/ContactSection";
 import PackersMovers from "./pages/PackersMovers/PackersMovers";
-import InfiniteScrollingServices from "./components/InfiniteScrollingServices";
+import Testimonials from "./components/Testimonials";
+import FAQSection from "./pages/home page/FAQSection";
 
 function App() {
   const inMumbaiLocations: string[] = [
@@ -49,8 +50,9 @@ function App() {
     <>
       <Navbar />
       <Home />
+      <Testimonials />
+      <FAQSection />
       <ContactSection />
-      <InfiniteScrollingServices />
       <div className="flex flex-col md:flex-row gap-4 mt-8 mb-12">
         <PackersMovers title="In Mumbai:" locations={inMumbaiLocations} />
         <PackersMovers title="From Mumbai:" locations={fromMumbaiLocations} />

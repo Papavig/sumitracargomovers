@@ -52,12 +52,6 @@ const Navbar = () => {
             >
               Home
             </a>
-            <a 
-              href="/services" 
-              className="text-gray-700 hover:text-destructive transition-colors duration-200"
-            >
-              Services
-            </a>
             <a
               href="/about"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"

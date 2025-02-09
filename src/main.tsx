@@ -9,7 +9,8 @@ import App from '@/App.tsx'
 import Contact from "@/pages/contact page/Contact.tsx";
 import Err from "./components/Err";
 import AboutUs from "./pages/about us/AboutUs";
-import Service from "./pages/service page/Service";
+import Blogs from "./pages/blogs page/Blogs";
+import BlogPost from "./pages/blogs page/BlogPost";
 
 const BrowserRouter = createBrowserRouter([
   {
@@ -28,8 +29,13 @@ const BrowserRouter = createBrowserRouter([
     errorElement: <Err />,
   },
   {
-    path: "/services",
-    element: <Service />,
+    path: "/blog",
+    element: <Blogs />,
+    errorElement: <Err />,
+  },
+  {
+    path: "/blog/:slug", 
+    element: <BlogPost />, 
     errorElement: <Err />,
   },
 
