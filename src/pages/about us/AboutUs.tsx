@@ -8,6 +8,7 @@ import PackersMovers from "../PackersMovers/PackersMovers";
 import Footer from "@/components/Footer";
 import ContactSection from "../contact page/ContactSection";
 import InfiniteScrollingServices from "@/components/InfiniteScrollingServices";
+import WhatsAppContact from "@/components/Chatbot";
 
 export default function AboutUs() {
   const inMumbaiLocations = [
@@ -52,6 +53,7 @@ export default function AboutUs() {
   return (
     <main className="min-h-screen">
       <Navbar />
+      <WhatsAppContact />
       <HeroSection />
       <CompanyOverview />
       <StatsCounter />

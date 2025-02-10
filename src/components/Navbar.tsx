@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Menu, Phone, X } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Menu, Phone, X } from "lucide-react";
 
-import Logo from '@/assets/Images/Logo-full.png';
+import Logo from "@/assets/Images/Logo-full.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,14 +12,14 @@ const Navbar = () => {
       setHasScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <nav 
+    <nav
       className={`sticky top-0 left-0 right-0 z-50 bg-white transition-all duration-300 
-      ${hasScrolled ? 'shadow-lg' : ''}`}
+      ${hasScrolled ? "shadow-lg" : ""}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -36,18 +36,14 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <a href="/">
-            <img
-              className="h-8 w-auto"
-              src={Logo}
-              alt="Company Logo"
-            />
+              <img className="h-8 w-auto" src={Logo} alt="Company Logo" />
             </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            <a 
-              href="/" 
+            <a
+              href="/"
               className="text-gray-700 hover:text-destructive transition-colors duration-200"
             >
               Home
@@ -64,8 +60,8 @@ const Navbar = () => {
             >
               Blogs
             </a>
-            <a 
-              href="/contact" 
+            <a
+              href="/contact"
               className="text-gray-700 hover:text-destructive transition-colors duration-200"
             >
               Contact Us
@@ -76,7 +72,7 @@ const Navbar = () => {
           <div className="flex items-center md:hidden">
             <a
               href="tel:+917039001002"
-              className="inline-flex items-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-[#0f8183] hover:bg-[#0f8183]/80 focus:outline-none"
+              className="inline-flex items-center px-4 py-2 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-[#008EA1] hover:bg-[#008EA1]/80 focus:outline-none"
             >
               <Phone size={16} className="mr-4" />
               Call
@@ -87,7 +83,7 @@ const Navbar = () => {
         {/* Mobile Navigation Dropdown */}
         <div
           className={`md:hidden transition-all duration-300 ease-in-out ${
-            isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+            isOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
           } overflow-hidden`}
         >
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white">
@@ -96,12 +92,6 @@ const Navbar = () => {
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
             >
               Home
-            </a>
-            <a
-              href="/services"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
-            >
-              Services
             </a>
             <a
               href="/about"

@@ -10,7 +10,7 @@
     --card-foreground: 0 0% 15%;
     --popover: 0 0% 95%;
     --popover-foreground: 0 95% 10%;
-    --primary: 0 0% 0%;
+    --primary: 189 18% 15%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 10% 90%;
     --secondary-foreground: 0 0% 0%;
@@ -60,8 +60,8 @@
 
 
 body {
-  --sb-track-color: #232E33;
-  --sb-thumb-color: #000000;
+  --sb-track-color: #dfece8;
+  --sb-thumb-color: #1f2b2d;
   --sb-size: 8px;
 }
 

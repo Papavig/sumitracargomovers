@@ -22,7 +22,7 @@ interface BlogCardProps {
           <p className="text-gray-600 mb-4">{excerpt}</p>
           <Link
             to={`/blog/${slug}`}
-            className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors duration-300"
+            className="inline-block bg-primary text-white px-4 py-2 rounded hover:bg-primary/80 transition-colors duration-300"
           >
             Read More
           </Link>

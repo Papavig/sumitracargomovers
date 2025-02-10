@@ -37,7 +37,7 @@ export default function BlogPost() {
       <div className="container mx-auto px-4 py-8 text-center">
         <h2 className="text-2xl font-bold text-red-600">404 - Blog Post Not Found</h2>
         <p className="text-gray-600">The blog post you are looking for does not exist.</p>
-        <Link to="/blog" className="text-blue-600 hover:underline mt-4 inline-block">
+        <Link to="/blog" className="text-primary hover:underline mt-4 inline-block">
           &larr; Back to Blog
         </Link>
       </div>
@@ -46,7 +46,7 @@ export default function BlogPost() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <Link to="/blog" className="inline-block mb-6 text-blue-600 hover:underline">
+      <Link to="/blog" className="inline-block mb-6 text-primary hover:underline">
         &larr; Back to Blog
       </Link>
       <article className="bg-white rounded-lg shadow-lg overflow-hidden">

@@ -4,7 +4,7 @@ export default function KeepConnected() {
   return (
     <div className="space-y-6">
       <h2 className="text-xl font-medium text-destructive">Keep Connected</h2>
-      <h3 className="text-4xl font-bold text-primary">
+      <h3 className="text-4xl font-bold text-black">
         Let's Get In Touch With Us
       </h3>
       <p className="text-muted-foreground">
@@ -50,7 +50,7 @@ export default function KeepConnected() {
         <div className="flex items-start space-x-3">
           <MapPin className="text-primary" size={24} />{" "}
           <p>
-            <strong>Sumitra Cargo Movers</strong> <br />
+            <strong className="text-black">Sumitra Cargo Movers</strong> <br />
             Mayur Park Complex, G-102, Sector - 36, <br />
             Kamothe, Panvel, Navi Mumbai, <br />
             Maharashtra 410206

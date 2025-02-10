@@ -49,7 +49,7 @@ export const HeroSection: React.FC = () => {
           <div className="lg:w-1/2 space-y-6 text-primary-">
             <h1 className="text-4xl lg:text-6xl font-bold">
               Shifting Karani Hai?<br />
-              <span className="text-destructive">Ho Jayega!</span>
+              <span className="text-[#008EA1]">Ho Jayega!</span>
             </h1>
             <h2 className="text-xl lg:text-2xl text-primary/70 font-semibold">
               Hire Sumitra Cargo Now,<br />All India Packers and Movers

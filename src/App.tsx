@@ -5,6 +5,7 @@ import ContactSection from "./pages/contact page/ContactSection";
 import PackersMovers from "./pages/PackersMovers/PackersMovers";
 import Testimonials from "./components/Testimonials";
 import FAQSection from "./pages/home page/FAQSection";
+import WhatsAppContact from "./components/Chatbot";
 
 function App() {
   const inMumbaiLocations: string[] = [
@@ -50,6 +51,7 @@ function App() {
     <>
       <Navbar />
       <Home />
+      <WhatsAppContact />
       <Testimonials />
       <FAQSection />
       <ContactSection />
