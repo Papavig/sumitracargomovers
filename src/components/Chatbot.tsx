@@ -237,7 +237,8 @@
 
 // export default SupportChatbot;
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
 import guy from "@/assets/Images/delivery guy.png";
 
@@ -251,6 +252,29 @@ const WhatsAppContact: React.FC<WhatsAppContactProps> = ({
   messageText = "Hi, I need assistance with moving services. Can you help?",
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  let scrollTimeout: NodeJS.Timeout;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsVisible(false); // Hide on scroll
+
+      // Clear the previous timeout to avoid flickering
+      clearTimeout(scrollTimeout);
+
+      // Reappear after stopping scroll
+      scrollTimeout = setTimeout(() => {
+        setIsVisible(true);
+      }, 400); // Adjust delay to make it smoother
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
 
   const handleWhatsAppClick = () => {
     const encodedMessage = encodeURIComponent(messageText);
@@ -261,15 +285,18 @@ const WhatsAppContact: React.FC<WhatsAppContactProps> = ({
   };
 
   return (
-    <div className="fixed bottom-0 right-4 z-50 font-sans flex flex-col items-end">
+    <motion.div
+      className="fixed bottom-4 right-4 z-50 font-sans flex flex-col items-end"
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }} 
+    >
       {isOpen && (
-        <div className="bg-white shadow-xl flex flex-col md:w-80 w-[90vw] mb-4 animate-slide-up">
-          <div className="flex items-center justify-between bg-[#075E54] p-3">
-            <div className="pr-4">
-              <h3 className="text-white font-medium text-sm">
-                Sumitra Cargo Movers | Your all in one Packers and Movers
-              </h3>
-            </div>
+        <div className="bg-white shadow-xl flex flex-col w-[85vw] max-w-[280px] mb-4 rounded-lg">
+          <div className="flex items-center justify-between bg-[#075E54] p-3 rounded-t-lg">
+            <h3 className="text-white font-medium text-sm leading-tight">
+              Sumitra Cargo Movers | Packers & Movers
+            </h3>
             <button
               onClick={() => setIsOpen(false)}
               className="text-white hover:bg-[#075E54]/80 p-1 rounded"
@@ -277,35 +304,36 @@ const WhatsAppContact: React.FC<WhatsAppContactProps> = ({
               <X className="w-4 h-4" />
             </button>
           </div>
-
-          <div className="bg-[#ECE5DD] p-4">
-            <div className="bg-white rounded-lg p-3 max-w-[80%] shadow-sm text-sm mb-24">
+  
+          <div className="bg-[#ECE5DD] p-3">
+            <div className="bg-white rounded-lg p-2 max-w-[70%] shadow-sm text-sm mb-16">
               {messageText}
             </div>
           </div>
-
+  
           <button
             onClick={handleWhatsAppClick}
-            className="w-[75%] mx-auto mt-4 rounded-xl bg-[#25D366] text-white p-3 flex items-center justify-center gap-2 text-sm font-medium"
+            className="w-[80%] mx-auto mt-3 rounded-lg bg-[#25D366] text-white py-2 flex items-center justify-center gap-2 text-sm font-medium"
           >
-            <MessageCircle />
+            <MessageCircle className="w-4 h-4" />
             WhatsApp Us
           </button>
-
-          <div className="text-center text-xs text-gray-500 py-2">
+  
+          <div className="text-center text-xs text-gray-500 py-2 flex items-center justify-center gap-1">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
             Online | Privacy policy
           </div>
         </div>
       )}
-
+  
       <img
         src={guy}
         alt="Contact Support"
         onClick={() => setIsOpen(true)}
-        className="w-40 h-40 cursor-pointer hover:scale-105 transition-transform duration-200"
+        className="w-32 h-32 cursor-pointer hover:scale-105 transition-transform duration-200"
       />
-    </div>
-  );
+    </motion.div>
+  );  
 };
 
 export default WhatsAppContact;
