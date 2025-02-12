@@ -78,7 +78,7 @@ export default function Testimonials() {
         </h2>
       </div>
 
-      <div className="container mx-auto px-4 mt-16">
+      <div className="container mx-auto px-4 mt-8 md:mt-16">
         <div
           className="relative min-h-[400px] md:min-h-[300px] flex items-center justify-center perspective-1000"
           onMouseEnter={() => setIsPaused(true)}
