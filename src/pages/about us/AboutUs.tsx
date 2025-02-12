@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import PackersMovers from "../PackersMovers/PackersMovers";
 import Footer from "@/components/Footer";
 import ContactSection from "../contact page/ContactSection";
-import InfiniteScrollingServices from "@/components/InfiniteScrollingServices";
+import ServicesSection from "@/components/ServicesSection";
 import WhatsAppContact from "@/components/Chatbot";
 
 export default function AboutUs() {
@@ -58,7 +58,7 @@ export default function AboutUs() {
       <CompanyOverview />
       <StatsCounter />
       <WhatSetsUsApart />
-      <InfiniteScrollingServices />
+      <ServicesSection />
       <Testimonials />
       <ContactSection />
       <div className="flex flex-col md:flex-row gap-4 mt-8 mb-12">

@@ -1,18 +1,17 @@
-import React from 'react';
-import { HeroSection } from './HeroSection';
-import { ProcessSection } from './ProcessSection';
-import { StatsSection } from './StatsSection';
-import InfiniteScrollingServices from '@/components/InfiniteScrollingServices';
-import WhatsAppContact from '@/components/Chatbot';
-import Testimonials from '@/components/Testimonials';
-import FAQSection from './FAQSection';
-import ContactSection from '../contact page/ContactSection';
-import PackersMovers from '../PackersMovers/PackersMovers';
-import Footer from '@/components/Footer';
-import Navbar from '@/components/Navbar';
+import React from "react";
+import { HeroSection } from "./HeroSection";
+import { ProcessSection } from "./ProcessSection";
+import { StatsSection } from "./StatsSection";
+import ServicesSection from "@/components/ServicesSection";
+import WhatsAppContact from "@/components/Chatbot";
+import Testimonials from "@/components/Testimonials";
+import FAQSection from "./FAQSection";
+import ContactSection from "../contact page/ContactSection";
+import PackersMovers from "../PackersMovers/PackersMovers";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 const Home: React.FC = () => {
-
   const inMumbaiLocations: string[] = [
     "Packers And Movers In Ghansoli- Mumbai",
     "Packers And Movers In Seawoods- Mumbai",
@@ -52,26 +51,28 @@ const Home: React.FC = () => {
     "Packers And Movers from Mumbai to Delhi NCR",
   ];
 
-  return (<><Navbar />
-    <div className="min-h-screen">
-      <HeroSection />
-      <WhatsAppContact />
-      <InfiniteScrollingServices />
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <ProcessSection />
-          <StatsSection />
+  return (
+    <>
+      <Navbar />
+      <div className="min-h-screen">
+        <HeroSection />
+        <WhatsAppContact />
+        <ServicesSection />
+        <section className="py-16 bg-background">
+          <div className="container mx-auto px-4">
+            <ProcessSection />
+            <StatsSection />
+          </div>
+        </section>
+        <Testimonials />
+        <FAQSection />
+        <ContactSection />
+        <div className="flex flex-col md:flex-row gap-4 mt-8 mb-12">
+          <PackersMovers title="In Mumbai:" locations={inMumbaiLocations} />
+          <PackersMovers title="From Mumbai:" locations={fromMumbaiLocations} />
         </div>
-      </section>
-      <Testimonials />
-      <FAQSection />
-      <ContactSection />
-      <div className="flex flex-col md:flex-row gap-4 mt-8 mb-12">
-        <PackersMovers title="In Mumbai:" locations={inMumbaiLocations} />
-        <PackersMovers title="From Mumbai:" locations={fromMumbaiLocations} />
+        <Footer />
       </div>
-      <Footer />
-    </div>
     </>
   );
 };
