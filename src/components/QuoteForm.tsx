@@ -1,62 +1,91 @@
 import React, { useState } from "react";
 import { User, Phone, MapPin, Calendar } from "lucide-react";
+import { Toaster, toast } from "sonner";
+import { submitForm } from "@/services/api";
 
 interface FormData {
   name: string;
-  phone: string;
+  mobileNumber: string;
   pickupLocation: string;
   dropLocation: string;
-  moveDate: string;
+  movingDate: string;
 }
 
-interface QuoteFormProps {
-  onSubmit: (formData: FormData) => void;
-}
-
-const QuoteForm: React.FC<QuoteFormProps> = ({ onSubmit }) => {
+const QuoteForm: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
-    phone: "",
+    mobileNumber: "",
     pickupLocation: "",
     dropLocation: "",
-    moveDate: "",
+    movingDate: "",
   });
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
-
   const validateForm = () => {
-    let newErrors: Record<string, string> = {};
+    let isValid = true;
 
-    if (!formData.name.trim()) newErrors.name = "Name is required";
-    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-    else if (!/^\d{10}$/.test(formData.phone))
-      newErrors.phone = "Enter a valid 10-digit phone number";
-
-    if (!formData.pickupLocation.trim()) newErrors.pickupLocation = "Pickup location is required";
-    if (!formData.dropLocation.trim()) newErrors.dropLocation = "Drop location is required";
-    if (!formData.moveDate) newErrors.moveDate = "Moving date is required";
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      onSubmit(formData);
+    if (!formData.name.trim()) {
+      toast.error("Name is required");
+      isValid = false;
     }
+    if (!formData.mobileNumber.trim()) {
+      toast.error("Phone number is required");
+      isValid = false;
+    } else if (!/^\d{10}$/.test(formData.mobileNumber)) {
+      toast.error("Enter a valid 10-digit phone number");
+      isValid = false;
+    }
+
+    if (!formData.pickupLocation.trim()) {
+      toast.error("Pickup location is required");
+      isValid = false;
+    }
+    if (!formData.dropLocation.trim()) {
+      toast.error("Drop location is required");
+      isValid = false;
+    }
+    if (!formData.movingDate) {
+      toast.error("Moving date is required");
+      isValid = false;
+    }
+
+    return isValid;
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-    setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    try {
+      await submitForm(formData);
+      toast.success("Form submitted successfully!");
+      setFormData({
+        name: "",
+        mobileNumber: "",
+        pickupLocation: "",
+        dropLocation: "",
+        movingDate: "",
+      });
+    } catch (error) {
+      toast.error("Submission failed. Please try again.");
+      console.error("Submission error:", error);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-4 sm:p-6 rounded-lg shadow-xl w-full">
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white p-4 sm:p-6 rounded-lg shadow-xl w-full"
+    >
+      <Toaster richColors />
       {/* Show title only on desktop */}
       <h3 className="text-2xl font-bold mb-4 sm:mb-6 text-primary hidden sm:block">
         Request a Quote
@@ -64,11 +93,41 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ onSubmit }) => {
 
       <div className="space-y-3">
         {[
-          { name: "name", type: "text", label: "Your Name", placeholder: "Who’s Moving?", icon: <User className="w-5 h-5 text-gray-400" /> },
-          { name: "phone", type: "tel", label: "Mobile Number", placeholder: "So We Can Assist You", icon: <Phone className="w-5 h-5 text-gray-400" /> },
-          { name: "pickupLocation", type: "text", label: "Pickup Location", placeholder: "Where Are You Moving From?", icon: <MapPin className="w-5 h-5 text-gray-400" /> },
-          { name: "dropLocation", type: "text", label: "Drop Location", placeholder: "Where Are You Moving To?", icon: <MapPin className="w-5 h-5 text-gray-400" /> },
-          { name: "moveDate", type: "date", label: "Moving Date", placeholder: "Preferred Moving Date", icon: <Calendar className="w-5 h-5 text-gray-400" /> }
+          {
+            name: "name",
+            type: "text",
+            label: "Your Name",
+            placeholder: "Who’s Moving?",
+            icon: <User className="w-5 h-5 text-gray-400" />,
+          },
+          {
+            name: "mobileNumber",
+            type: "tel",
+            label: "Mobile Number",
+            placeholder: "So We Can Assist You",
+            icon: <Phone className="w-5 h-5 text-gray-400" />,
+          },
+          {
+            name: "pickupLocation",
+            type: "text",
+            label: "Pickup Location",
+            placeholder: "Where Are You Moving From?",
+            icon: <MapPin className="w-5 h-5 text-gray-400" />,
+          },
+          {
+            name: "dropLocation",
+            type: "text",
+            label: "Drop Location",
+            placeholder: "Where Are You Moving To?",
+            icon: <MapPin className="w-5 h-5 text-gray-400" />,
+          },
+          {
+            name: "movingDate",
+            type: "date",
+            label: "Moving Date",
+            placeholder: "Preferred Moving Date",
+            icon: <Calendar className="w-5 h-5 text-gray-400" />,
+          },
         ].map(({ name, type, label, placeholder, icon }) => (
           <div key={name} className="relative">
             {/* Label for Desktop */}
@@ -78,22 +137,19 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ onSubmit }) => {
 
             {/* Input Field with Icon */}
             <div className="relative mb-2">
-              <span className="absolute left-3 top-1/2 transform -translate-y-1/2">{icon}</span>
+              <span className="absolute left-3 top-1/2 transform -translate-y-1/2">
+                {icon}
+              </span>
               <input
                 type={type}
                 name={name}
                 value={formData[name as keyof FormData]}
                 onChange={handleInputChange}
-                className={`w-full p-3 pl-10 border rounded-lg text-sm ${
-                  errors[name] ? "border-red-500" : ""
-                }`}
-                placeholder={placeholder} 
+                className="w-full p-3 pl-10 border rounded-lg text-sm"
+                placeholder={placeholder}
                 required
               />
             </div>
-
-            {/* Error Message */}
-            {errors[name] && <p className="text-red-500 text-xs mt-1">{errors[name]}</p>}
           </div>
         ))}
 

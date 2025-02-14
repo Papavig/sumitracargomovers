@@ -1,17 +1,31 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import { StrictMode, JSX } from "react";
+import { createRoot } from "react-dom/client";
 
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import "./index.css";
 
-import './index.css'
-
-import App from '@/App.tsx'
-import Contact from "@/pages/contact page/Contact.tsx";
+import App from "./App.tsx";
+import Contact from "./pages/contact page/Contact.tsx";
 import Err from "./components/Err";
 import AboutUs from "./pages/about us/AboutUs";
 import Blogs from "./pages/blogs page/Blogs";
 import BlogPost from "./pages/blogs page/BlogPost";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import { AuthProvider, useAuth } from "./AuthContext";
 
+// Protected Route Component
+const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
+  const { token } = useAuth(); // Check if admin is logged in
+
+  if (!token) {
+    return <Navigate to="/admin" replace />; // Redirect to login if not authenticated
+  }
+
+  return children;
+};
+
+// Define Routes
 const BrowserRouter = createBrowserRouter([
   {
     path: "/",
@@ -34,15 +48,31 @@ const BrowserRouter = createBrowserRouter([
     errorElement: <Err />,
   },
   {
-    path: "/blog/:slug", 
-    element: <BlogPost />, 
+    path: "/blog/:slug",
+    element: <BlogPost />,
     errorElement: <Err />,
   },
-
+  {
+    path: "/admin",
+    element: <AdminLogin />,
+    errorElement: <Err />,
+  },
+  {
+    path: "/admin/dashboard",
+    element: (
+      <ProtectedRoute>
+        <AdminDashboard />
+      </ProtectedRoute>
+    ),
+    errorElement: <Err />,
+  },
 ]);
 
-createRoot(document.getElementById('root')!).render(
+// Render Application
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={BrowserRouter} />
-  </StrictMode>,
-)
+    <AuthProvider>
+      <RouterProvider router={BrowserRouter} />
+    </AuthProvider>
+  </StrictMode>
+);
