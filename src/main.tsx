@@ -1,4 +1,8 @@
-import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
 import { StrictMode, JSX } from "react";
 import { createRoot } from "react-dom/client";
 
@@ -6,13 +10,13 @@ import "./index.css";
 
 import App from "./App.tsx";
 import Contact from "./pages/contact page/Contact.tsx";
-import Err from "./components/Err";
-import AboutUs from "./pages/about us/AboutUs";
-import Blogs from "./pages/blogs page/Blogs";
-import BlogPost from "./pages/blogs page/BlogPost";
-import AdminLogin from "./pages/admin/AdminLogin";
-import AdminDashboard from "./pages/admin/AdminDashboard";
-import { AuthProvider, useAuth } from "./AuthContext";
+import Err from "./components/Err.tsx";
+import AboutUs from "./pages/about us/AboutUs.tsx";
+import Blogs from "./pages/blogs page/Blogs.tsx";
+import BlogPost from "./pages/blogs page/BlogPost.tsx";
+import AdminLogin from "./pages/admin/AdminLogin.tsx";
+import AdminDashboard from "./pages/admin/AdminDashboard.tsx";
+import { AuthProvider, useAuth } from "./AuthContext.tsx";
 
 // Protected Route Component
 const ProtectedRoute = ({ children }: { children: JSX.Element }) => {

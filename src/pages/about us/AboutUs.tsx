@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import ContactSection from "../contact page/ContactSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhatsAppContact from "@/components/Chatbot";
+import ImageShowcase from "./ImageShowcase";
 
 export default function AboutUs() {
   const inMumbaiLocations = [
@@ -60,6 +61,10 @@ export default function AboutUs() {
       <WhatSetsUsApart />
       <ServicesSection />
       <Testimonials />
+      <div>
+        <h1 className="text-2xl sm:text-3xl text-center font-bold ">Our Works</h1>
+        <ImageShowcase />
+      </div>
       <ContactSection />
       <div className="flex flex-col md:flex-row gap-4 mt-8 mb-12">
         <PackersMovers title="In Mumbai:" locations={inMumbaiLocations} />

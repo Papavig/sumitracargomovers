@@ -31,7 +31,7 @@ const ServicesSection: React.FC = () => {
   return (
     <section className="py-10 bg-background overflow-hidden">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Services We Provide</h2>
+        <h2 className="text-2xl sm:text-3xl text-center font-bold mb-6 sm:mb-8">Services We Provide</h2>
 
         <div className="relative w-full overflow-hidden">
           <motion.div
