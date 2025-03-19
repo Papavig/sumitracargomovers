@@ -4,15 +4,12 @@ export default function KeepConnected() {
   return (
     <div className="space-y-6">
       <h2 className="text-xl font-medium text-destructive">Keep Connected</h2>
-      <h3 className="text-4xl font-bold text-black">
-        Let's Get In Touch With Us
-      </h3>
+      <h3 className="text-4xl font-bold text-black">Let’s Get You Moving!</h3>
       <p className="text-muted-foreground">
-        Thank you for considering Sumitra Cargo Movers. We value your interest
-        and look forward to assisting you with your logistics needs. Feel free
-        to reach out to us through the following contact options:
+        Your search for <strong>trusted packers and movers in Maharashtra</strong> ends here. 
+        Whether you're relocating your <strong>home, office, or vehicle</strong>, we are here to make 
+        your move <strong>safe, smooth, and stress-free</strong>.
       </p>
-
       {/* Contact Details */}
       <div className="space-y-4">
         {/* Email */}

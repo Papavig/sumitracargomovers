@@ -10,49 +10,49 @@ interface ImageItem {
 
 const images: ImageItem[] = [
   {
-    url: "/assets/Showcase Images/1.jpg",
+    url: "/assets/ShowcaseImages/1.jpg",
     alt: "A moving truck driving on the highway, ready for nationwide transportation",
     caption:
       "Seamless and Reliable Nationwide Moving Services for Your Peace of Mind",
   },
   {
-    url: "/assets/Showcase Images/2.jpg",
+    url: "/assets/ShowcaseImages/2.jpg",
     alt: "A dedicated packing team carefully wrapping and securing furniture",
     caption:
       "Expert Packing Services Ensuring Maximum Protection for Your Belongings",
   },
   {
-    url: "/assets/Showcase Images/3.jpg",
+    url: "/assets/ShowcaseImages/3.jpg",
     alt: "A happy customer receiving their belongings after a successful move",
     caption:
       "Customer Satisfaction Guaranteed with Our Hassle-Free Moving Experience",
   },
   {
-    url: "/assets/Showcase Images/4.jpg",
+    url: "/assets/ShowcaseImages/4.jpg",
     alt: "A secure and well-maintained storage facility for short and long-term storage",
     caption:
       "Safe, Spacious, and Secure Storage Solutions for Your Valuable Items",
   },
   {
-    url: "/assets/Showcase Images/5.jpg",
+    url: "/assets/ShowcaseImages/5.jpg",
     alt: "A professional local moving team efficiently handling a residential move",
     caption:
       "Fast, Efficient, and Stress-Free Local Moving Services for Your Convenience",
   },
   {
-    url: "/assets/Showcase Images/6.jpg",
+    url: "/assets/ShowcaseImages/6.jpg",
     alt: "Large shipping containers being loaded for international transport",
     caption:
       "Global Relocation Made Easy with Our Trusted International Shipping Expertise",
   },
   {
-    url: "/assets/Showcase Images/7.jpg",
+    url: "/assets/ShowcaseImages/7.jpg",
     alt: "A team of professionals loading boxes into a moving truck",
     caption:
       "Experienced Moving Crew Dedicated to a Smooth and Timely Moving Process",
   },
   {
-    url: "/assets/Showcase Images/8.jpg",
+    url: "/assets/ShowcaseImages/8.jpg",
     alt: "An organized warehouse with packed goods ready for dispatch",
     caption:
       "Well-Managed Logistics and Warehousing for a Hassle-Free Moving Experience",
