@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
@@ -13,16 +14,25 @@ export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/blogs/${slug}`)
-      .then((res) => res.json())
+    fetch(`${apiUrl}/blogs/${slug}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Blog not found");
+        }
+        return res.json();
+      })
       .then((data) => {
         setPost(data);
-        setLoading(false);
       })
-      .catch(() => setLoading(false));
-  }, [slug]);
+      .catch((error) => {
+        console.error("Error fetching blog:", error);
+        setPost(null);
+      })
+      .finally(() => setLoading(false));
+  }, [slug, apiUrl]);
 
   if (loading) {
     return <p className="text-center text-gray-500">Loading blog...</p>;
@@ -41,8 +51,9 @@ export default function BlogPost() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <Link to="/blog" className="inline-block mb-6 text-primary hover:underline">
+    <div className="container min-h-screen mx-auto px-4 py-8 bg-white">
+      <Navbar />
+      <Link to="/blog" className="inline-block mb-6 text-primary hover:underline mt-4">
         &larr; Back to Blog
       </Link>
       <article className="bg-white rounded-lg shadow-lg overflow-hidden">

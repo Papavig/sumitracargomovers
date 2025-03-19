@@ -9,7 +9,7 @@
 //   ChevronUp,
 // } from "lucide-react";
 
-// import guy from '@/assets/Images/delivery guy.png';
+// import guy from '/assets/Images/delivery guy.png';
 
 // interface Message {
 //   type: "bot" | "user";
@@ -240,7 +240,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
-import guy from "@/assets/Images/delivery guy.png";
+import guy from "/assets/Images/delivery guy.png";
 
 interface WhatsAppContactProps {
   phoneNumber?: string;
@@ -289,7 +289,7 @@ const WhatsAppContact: React.FC<WhatsAppContactProps> = ({
       className="fixed bottom-4 right-4 z-50 font-sans flex flex-col items-end"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }} 
+      transition={{ duration: 0.4, ease: "easeInOut" }}
     >
       {isOpen && (
         <div className="bg-white shadow-xl flex flex-col w-[85vw] max-w-[280px] mb-4 rounded-lg">
@@ -304,13 +304,13 @@ const WhatsAppContact: React.FC<WhatsAppContactProps> = ({
               <X className="w-4 h-4" />
             </button>
           </div>
-  
+
           <div className="bg-[#ECE5DD] p-3">
             <div className="bg-white rounded-lg p-2 max-w-[70%] shadow-sm text-sm mb-16">
               {messageText}
             </div>
           </div>
-  
+
           <button
             onClick={handleWhatsAppClick}
             className="w-[80%] mx-auto mt-3 rounded-lg bg-[#25D366] text-white py-2 flex items-center justify-center gap-2 text-sm font-medium"
@@ -318,14 +318,14 @@ const WhatsAppContact: React.FC<WhatsAppContactProps> = ({
             <MessageCircle className="w-4 h-4" />
             WhatsApp Us
           </button>
-  
+
           <div className="text-center text-xs text-gray-500 py-2 flex items-center justify-center gap-1">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
             Online | Privacy policy
           </div>
         </div>
       )}
-  
+
       <img
         src={guy}
         alt="Contact Support"
@@ -333,7 +333,7 @@ const WhatsAppContact: React.FC<WhatsAppContactProps> = ({
         className="w-32 h-32 cursor-pointer hover:scale-105 transition-transform duration-200"
       />
     </motion.div>
-  );  
+  );
 };
 
 export default WhatsAppContact;

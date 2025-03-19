@@ -1,15 +1,7 @@
+
 export default function CompanyOverview() {
   return (
-    <section className="relative py-20 overflow-hidden">
-      <video
-        autoPlay
-        loop
-        muted
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="/moving-video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <section className="relative py-16 overflow-hidden">
       <div className="relative z-10 container mx-auto px-4">
         <div className="bg-background/80 backdrop-blur-sm rounded-lg p-8 space-y-12">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -27,9 +19,9 @@ export default function CompanyOverview() {
             </div>
             <div className="relative h-64 md:h-full">
               <img
-                src="https://placehold.co/600x400"
+                src="/assets/ShowcaseImages/Main.jpg"
                 alt="About Sumitra Cargo Movers"
-                className="object-cover rounded-lg bg-cover"
+                className="w-[600px] h-[400px] object-cover rounded-lg"
               />
             </div>
           </div>
@@ -46,27 +38,9 @@ export default function CompanyOverview() {
             </div>
             <div className="relative h-64 md:h-full md:order-1">
               <img
-                src="https://placehold.co/600x400"
-                alt="Sumitra Cargo Movers History"
-                className="object-cover rounded-lg bg-cover"
-              />
-            </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-3xl font-bold mb-4">Our Commitments</h2>
-              <p className="text-lg">
-                At Sumitra Cargo Movers, our commitment goes beyond moving
-                goods; it's about moving experiences. We prioritize customer
-                satisfaction, offering a customer-centric approach that
-                personalizes our services to match your requirements.
-              </p>
-            </div>
-            <div className="relative h-64 md:h-full">
-              <img
-                src="https://placehold.co/600x400"
-                alt="Sumitra Cargo Movers Commitments"
-                className="object-cover rounded-lg bg-cover"
+                src="/assets/ShowcaseImages/packers-movers.jpg"
+                alt="About Sumitra Cargo Movers"
+                className="w-[600px] h-[400px] object-cover rounded-lg"
               />
             </div>
           </div>
