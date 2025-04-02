@@ -58,13 +58,9 @@ const Home: React.FC = () => {
         <HeroSection />
         <WhatsAppContact />
         <ServicesSection />
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
-            <ProcessSection />
-            <StatsSection />
-          </div>
-        </section>
+        <ProcessSection />
         <Testimonials />
+        <StatsSection />
         <FAQSection />
         <ContactSection />
         <div className="flex flex-col md:flex-row gap-4 mt-8 mb-12">

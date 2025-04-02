@@ -1,4 +1,6 @@
 import { Truck, Clock, Shield, Users } from "lucide-react"
+import { motion } from "framer-motion";
+import { fadeInUp, staggerChildren } from "@/lib/animations";
 
 const features = [
   {
@@ -28,18 +30,40 @@ export default function WhatSetsUsApart() {
   return (
     <section className="py-20 bg-background/80">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">What Sets Us Apart</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.h2 
+          className="text-4xl font-bold text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          What Sets Us Apart
+        </motion.h2>
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          variants={staggerChildren}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {features.map((feature, index) => (
-            <div key={index} className="bg-background rounded-lg p-6 shadow-md">
+            <motion.div 
+              key={index} 
+              className="bg-background rounded-lg p-6 shadow-md"
+              variants={fadeInUp}
+              whileHover={{ 
+                y: -10, 
+                boxShadow: "0 10px 25px rgba(0,0,0,0.1)" 
+              }}
+              transition={{ duration: 0.3 }}
+            >
               <feature.icon className="w-12 h-12 text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
               <p className="text-muted-foreground">{feature.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )
 }
-

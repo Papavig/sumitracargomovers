@@ -58,9 +58,9 @@ export default function AboutUs() {
       <HeroSection />
       <CompanyOverview />
       <StatsCounter />
+      <Testimonials />
       <WhatSetsUsApart />
       <ServicesSection />
-      <Testimonials />
       <div>
         <h1 className="text-2xl sm:text-3xl text-center font-bold ">Our Works</h1>
         <ImageShowcase />

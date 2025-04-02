@@ -1,6 +1,8 @@
 import React from "react";
 import Boxes from "/assets/Images/Boxes.jpg";
 import QuoteForm from "@/components/QuoteForm";
+import { motion } from "framer-motion";
+import { fadeInLeft, fadeInRight } from "@/lib/animations";
 
 export const HeroSection: React.FC = () => {
   return (
@@ -12,7 +14,12 @@ export const HeroSection: React.FC = () => {
 
       <div className="container mx-auto px-4 py-16 relative">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
-          <div className="lg:w-1/2 space-y-6 text-primary-">
+          <motion.div 
+            className="lg:w-1/2 space-y-6 text-primary-"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInLeft}
+          >
             <h1 className="text-4xl lg:text-6xl font-bold">
               Befikar Shifting,
               <br />
@@ -23,12 +30,17 @@ export const HeroSection: React.FC = () => {
               <br />
               All India Packers and Movers
             </h2>
-          </div>
+          </motion.div>
 
           {/* Quote Form */}
-          <div className="lg:w-1/2 w-full">
+          <motion.div 
+            className="lg:w-1/2 w-full"
+            initial="hidden"
+            animate="visible"
+            variants={fadeInRight}
+          >
             <QuoteForm />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
