@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { fadeInUp, staggerChildren } from "@/lib/animations";
 
 const faqs = [
   { question: "How do I book Sumitra Cargo Movers?", answer: "You can book by calling us or filling out our online form." },
@@ -21,28 +22,60 @@ const FAQSection: React.FC = () => {
 
   return (
     <section className="max-w-3xl mx-auto py-12 px-6">
-      <h2 className="text-3xl font-bold text-center">Frequently Asked Questions</h2>
-      <p className="text-gray-600 text-center mt-2">
+      <motion.h2 
+        className="text-3xl font-bold text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        Frequently Asked Questions
+      </motion.h2>
+      <motion.p 
+        className="text-gray-600 text-center mt-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
         Find answers to common questions about our moving services. If you need more help, feel free to contact us.
-      </p>
+      </motion.p>
 
-      <div className="space-y-4 mt-6">
+      <motion.div 
+        className="space-y-4 mt-6"
+        variants={staggerChildren}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+      >
         {faqs.map((faq, index) => (
-          <div key={index} className="border rounded-lg p-4 shadow-md">
-            <button
+          <motion.div 
+            key={index} 
+            className="border rounded-lg p-4 shadow-md"
+            variants={fadeInUp}
+          >
+            <motion.button
               className="w-full flex justify-between items-center font-bold text-left"
               onClick={() => toggleFAQ(index)}
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
             >
               <span className="mr-2">{faq.question}</span>
-              <span className="ml-auto text-lg">{openIndex === index ? <ChevronUp /> : <ChevronDown />}</span>
-            </button>
+              <motion.span 
+                className="ml-auto text-lg"
+                animate={{ rotate: openIndex === index ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {openIndex === index ? <ChevronUp /> : <ChevronDown />}
+              </motion.span>
+            </motion.button>
 
             <AnimatePresence>
               {openIndex === index && (
                 <motion.div
-                  initial={{ opacity: 0, maxHeight: 0 }}
-                  animate={{ opacity: 1, maxHeight: 150 }}  // Limits height to prevent shifting
-                  exit={{ opacity: 0, maxHeight: 0 }}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                   className="overflow-hidden mt-2"
                 >
@@ -50,9 +83,9 @@ const FAQSection: React.FC = () => {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

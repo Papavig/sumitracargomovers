@@ -40,7 +40,15 @@ export const loginAdmin = async (credentials: { username: string; password: stri
   return response.data;
 };
 
-export const submitForm = async (formData: any) => {
+export interface SubmissionFormData {
+  name: string;
+  mobileNumber: string;
+  pickupLocation: string;
+  dropLocation: string;
+  movingDate: string;
+}
+
+export const submitForm = async (formData: SubmissionFormData) => {
   try {
     const response = await api.post("/submit-form", formData);
     return response.data;

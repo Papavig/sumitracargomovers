@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
 import guy from "/assets/Images/delivery guy.png";
@@ -14,15 +14,17 @@ const WhatsAppContact: React.FC<WhatsAppContactProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(true); // Start visible
-  let scrollTimeout: NodeJS.Timeout;
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsVisible(false); // Hide on scroll
       // Clear the previous timeout to avoid flickering
-      clearTimeout(scrollTimeout);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
       // Reappear after stopping scroll
-      scrollTimeout = setTimeout(() => {
+      scrollTimeoutRef.current = setTimeout(() => {
         setIsVisible(true);
       }, 400); // Adjust delay to make it smoother
     };
@@ -30,7 +32,9 @@ const WhatsAppContact: React.FC<WhatsAppContactProps> = ({
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      clearTimeout(scrollTimeout);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
     };
   }, []);
 

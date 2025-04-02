@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { submitContactForm } from "@/services/api";
+import { motion } from "framer-motion";
+import { fadeInUp } from "@/lib/animations";
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,7 +48,14 @@ export default function ContactForm() {
   };
 
   return (
-    <form className="space-y-6" onSubmit={handleSubmit}>
+    <motion.form 
+      className="space-y-6" 
+      onSubmit={handleSubmit}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeInUp}
+    >
       <div className="space-y-2">
         <label
           htmlFor="name"
@@ -91,9 +100,14 @@ export default function ContactForm() {
           onChange={handleChange} 
         />
       </div>
-      <Button type="submit" className="w-full py-6" disabled={isSubmitting}>
-        {isSubmitting ? "Sending..." : "Send Message"}
-      </Button>
-    </form>
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <Button type="submit" className="w-full py-6" disabled={isSubmitting}>
+          {isSubmitting ? "Sending..." : "Send Message"}
+        </Button>
+      </motion.div>
+    </motion.form>
   );
 }

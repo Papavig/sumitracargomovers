@@ -96,18 +96,38 @@ export default function ServiceTemplate({
       {/* Hero Section */}
       <section className="bg-primary text-primary-foreground py-20 text-center">
         <div className="container mx-auto px-4">
-          <div className="inline-block p-4 bg-white/10 rounded-full mb-6">
+          <motion.div 
+            className="inline-block p-4 bg-white/10 rounded-full mb-6"
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, type: "spring" }}
+          >
             <div className="w-16 h-16 text-white">
               {icon}
             </div>
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+          </motion.div>
+          <motion.h1 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             {title}
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+          </motion.h1>
+          <motion.p 
+            className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             {subtitle}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.p>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
             <Button 
               size="lg" 
               onClick={scrollToFeatures} 
@@ -123,7 +143,7 @@ export default function ServiceTemplate({
             >
               Get a Quote
             </WhatsAppQuoteButton>
-          </div>
+          </motion.div>
         </div>
       </section>
 
