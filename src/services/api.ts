@@ -74,3 +74,28 @@ export const deleteSubmission = async (id: string) => {
   }
 };
 
+interface ErrorWithResponse {
+  response?: {
+    data?: {
+      error?: string;
+    };
+  };
+  message?: string;
+}
+
+export const submitContactForm = async (formData: { name: string; email: string; message: string }) => {
+  try {
+    const response = await api.post("/contact", formData);
+    return response.data;
+  } catch (error: unknown) {
+    console.error("Error submitting contact form:", error);
+    
+    // Cast to a more specific type to handle error properties
+    const err = error as ErrorWithResponse;
+    
+    // Extract error message with safe property access
+    const errorMessage = err.response?.data?.error || err.message || "Something went wrong";
+    throw new Error(errorMessage);
+  }
+};
+

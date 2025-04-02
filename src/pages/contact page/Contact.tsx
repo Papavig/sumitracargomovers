@@ -3,6 +3,7 @@ import ContactSection from "./ContactSection";
 import Navbar from "@/components/Navbar";
 import PackersMovers from "../PackersMovers/PackersMovers";
 import Footer from "@/components/Footer";
+import { Toaster } from "sonner";
 
 const inMumbaiLocations = [
   "Packers And Movers In Ghansoli- Mumbai",
@@ -56,6 +57,7 @@ export default function Contact() {
         </div>
       </div>
       <Footer />
+      <Toaster richColors />
     </div>
   );
 }

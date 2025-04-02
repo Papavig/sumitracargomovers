@@ -49,7 +49,7 @@ export default function Testimonials() {
     }
   }, [isPaused]);
 
-  const getCardVariants = (index) => {
+  const getCardVariants = (index: number) => {
     const position = (index - activeIndex + testimonials.length) % testimonials.length;
     
     if (isMobile) {

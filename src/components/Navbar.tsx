@@ -49,14 +49,20 @@ const Navbar = () => {
               Home
             </a>
             <a
+              href="/service"
+              className="text-gray-700 hover:text-destructive transition-colors duration-200"
+            >
+              Services
+            </a>
+            <a
               href="/about"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
+              className="text-gray-700 hover:text-destructive transition-colors duration-200"
             >
               About Us
             </a>
             <a
               href="/blog"
-              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
+              className="text-gray-700 hover:text-destructive transition-colors duration-200"
             >
               Blogs
             </a>
@@ -92,6 +98,12 @@ const Navbar = () => {
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
             >
               Home
+            </a>
+            <a
+              href="/service"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-destructive hover:bg-gray-50"
+            >
+              Services
             </a>
             <a
               href="/about"
