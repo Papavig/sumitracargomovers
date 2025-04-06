@@ -10,6 +10,7 @@ import ContactSection from "../contact page/ContactSection";
 import PackersMovers from "../PackersMovers/PackersMovers";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import OurProcess from "./OurProcess";
 
 const Home: React.FC = () => {
   const inMumbaiLocations: string[] = [
@@ -57,9 +58,10 @@ const Home: React.FC = () => {
       <div className="min-h-screen">
         <HeroSection />
         <WhatsAppContact />
-        <ServicesSection />
         <ProcessSection />
+        <ServicesSection />
         <Testimonials />
+        <OurProcess />
         <StatsSection />
         <FAQSection />
         <ContactSection />

@@ -17,10 +17,7 @@ export default function LocalMoving() {
         "Flexible scheduling options including weekends and evenings",
         "Trained professional movers familiar with local areas and buildings",
         "Properly equipped and well-maintained moving vehicles",
-        "Furniture disassembly and reassembly services",
-        "Special handling for bulky items like pianos and large appliances",
-        "Floor and doorway protection to prevent damage to both locations",
-        "Transparent pricing with no hidden fees",
+    
       ]}
       process={[
         {
@@ -42,24 +39,6 @@ export default function LocalMoving() {
         {
           title: "Placement & Setup",
           description: "We place furniture and boxes in their designated rooms and reassemble furniture as needed",
-        },
-      ]}
-      faqs={[
-        {
-          question: "How do you charge for local moves?",
-          answer: "Local moves are typically charged at an hourly rate based on the number of movers and trucks required. We provide a detailed estimate after assessing your specific moving needs.",
-        },
-        {
-          question: "How far in advance should I book my local move?",
-          answer: "We recommend booking at least 2 weeks in advance, especially for weekend moves. However, we understand that plans change and can often accommodate last-minute requests.",
-        },
-        {
-          question: "Do you provide moving supplies for local moves?",
-          answer: "Yes, we can provide all necessary moving supplies including boxes, tape, bubble wrap, and furniture blankets, either as part of your package or for an additional fee.",
-        },
-        {
-          question: "Can you move specialty items like pianos or pool tables?",
-          answer: "Yes, we have specialized equipment and training to safely move pianos, pool tables, artwork, and other specialty items. Please mention these items during your estimate.",
         },
       ]}
     />

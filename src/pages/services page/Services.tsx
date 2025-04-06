@@ -130,7 +130,7 @@ export default function Services() {
             </motion.p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 lg:gap-8">
             <ServiceCard
               icon={<Box className="h-10 w-10" />}
               title="Professional Packing"
@@ -176,7 +176,6 @@ export default function Services() {
 
       {/* Moving Services Carousel */}
       <div className="py-10 bg-background">
-        <h2 className="text-3xl font-bold text-center mb-8">Moving Services We Provide</h2>
         <ServicesSection />
       </div>
 

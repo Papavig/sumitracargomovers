@@ -17,11 +17,6 @@ export default function StorageSolutions() {
         "24/7 security monitoring and controlled access",
         "Flexible short-term and long-term storage options",
         "Clean, pest-free environment with regular maintenance",
-        "Containerized storage options for added protection",
-        "Inventory management system for easy item tracking",
-        "Convenient access hours with appointment options",
-        "Direct pickup and delivery services available",
-        "Insurance coverage for stored items",
       ]}
       process={[
         {
@@ -49,24 +44,7 @@ export default function StorageSolutions() {
           description: "Regular checks ensure your items remain in optimal condition throughout storage",
         },
       ]}
-      faqs={[
-        {
-          question: "How accessible are my items while in storage?",
-          answer: "You can access your stored items during our regular business hours. For specialty storage or containers, we may require advance notice to ensure your items are accessible when you arrive.",
-        },
-        {
-          question: "Are there items that cannot be placed in storage?",
-          answer: "Yes, certain hazardous materials, perishables, plants, and animals cannot be stored in our facilities. We can provide a complete list of prohibited items upon request.",
-        },
-        {
-          question: "How is billing handled for storage services?",
-          answer: "Storage is typically billed on a monthly basis, with options for prepaying longer periods at a discount. We accept various payment methods and can set up automatic billing for your convenience.",
-        },
-        {
-          question: "What security measures are in place to protect my belongings?",
-          answer: "Our facilities feature 24/7 surveillance cameras, alarm systems, controlled access points, fire protection systems, and regular security patrols to ensure your items remain safe.",
-        },
-      ]}
+      
     />
   );
 }

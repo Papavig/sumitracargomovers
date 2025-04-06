@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card,  CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface ServiceCardProps {
   icon: ReactNode
@@ -28,11 +28,12 @@ export default function ServiceCard({ icon, title, description, delay = 0 }: Ser
           boxShadow: "0 15px 30px rgba(0,0,0,0.1)",
           transition: { duration: 0.3 }
         }}
+        className="h-full"
       >
         <Card className="h-full transition-all duration-300">
-          <CardHeader>
+          <CardHeader className="pb-2 md:pb-4">
             <motion.div 
-              className="mb-4 text-primary"
+              className="mb-2 md:mb-4 text-primary"
               initial={{ scale: 0.8 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
@@ -45,49 +46,16 @@ export default function ServiceCard({ icon, title, description, delay = 0 }: Ser
             >
               {icon}
             </motion.div>
-            <CardTitle className="text-xl">{title}</CardTitle>
-            <CardDescription>{description}</CardDescription>
+            <CardTitle className="text-lg md:text-xl">{title}</CardTitle>
+            <CardDescription className="text-xs md:text-sm mt-1">{description}</CardDescription>
           </CardHeader>
-          <CardContent>
-            <ul className="space-y-2 text-sm">
-              <motion.li 
-                className="flex items-start"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: delay + 0.3 }}
-              >
-                <span className="mr-2 mt-0.5 text-primary">•</span>
-                <span>Professional equipment and materials</span>
-              </motion.li>
-              <motion.li 
-                className="flex items-start"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: delay + 0.4 }}
-              >
-                <span className="mr-2 mt-0.5 text-primary">•</span>
-                <span>Trained and experienced staff</span>
-              </motion.li>
-              <motion.li 
-                className="flex items-start"
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: delay + 0.5 }}
-              >
-                <span className="mr-2 mt-0.5 text-primary">•</span>
-                <span>Fully insured service</span>
-              </motion.li>
-            </ul>
-          </CardContent>
-          <CardFooter>
+          
+          <CardFooter className="pt-0 pb-2 md:pb-4">
             <motion.div
               whileHover={{ x: 5 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button variant="ghost" size="sm" className="group" asChild>
+              <Button variant="ghost" size="sm" className="group h-8 md:h-10 px-2 md:px-4 text-xs md:text-sm" asChild>
                 <a href={`/service/${slug}`}>
                   Learn More
                   <motion.div
@@ -100,7 +68,7 @@ export default function ServiceCard({ icon, title, description, delay = 0 }: Ser
                       repeatDelay: 2
                     }}
                   >
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    <ArrowRight className="ml-1 md:ml-2 h-3 w-3 md:h-4 md:w-4" />
                   </motion.div>
                 </a>
               </Button>

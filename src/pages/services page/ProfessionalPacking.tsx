@@ -17,10 +17,6 @@ export default function ProfessionalPacking() {
         "Custom crating for valuable or delicate items requiring extra protection",
         "Specialized packing for electronics, artwork, and antiques",
         "Systematic labeling system for efficient unpacking",
-        "Eco-friendly packing options available upon request",
-        "Full or partial packing services based on your needs",
-        "Unpacking services available at destination",
-        "Debris removal after unpacking completion",
       ]}
       process={[
         {
@@ -44,24 +40,7 @@ export default function ProfessionalPacking() {
           description: "We can help unpack at your new location and remove all packing debris",
         },
       ]}
-      faqs={[
-        {
-          question: "How far in advance should I schedule packing services?",
-          answer: "We recommend booking at least 2-3 weeks before your move date, but we can accommodate last-minute requests based on availability.",
-        },
-        {
-          question: "Do I need to be present during the packing process?",
-          answer: "While not absolutely necessary, we recommend being present at least at the beginning to provide any specific instructions and at the end to verify everything has been packed.",
-        },
-        {
-          question: "How do you handle fragile or valuable items?",
-          answer: "Fragile items receive special attention with extra cushioning and custom boxes or crates when necessary. We recommend transporting extremely valuable items (jewelry, important documents) personally.",
-        },
-        {
-          question: "Do you provide unpacking services as well?",
-          answer: "Yes, we offer comprehensive unpacking services where we'll unpack your belongings, arrange them according to your instructions, and remove all packing materials.",
-        },
-      ]}
+      
     />
   );
 }
