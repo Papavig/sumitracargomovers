@@ -5,20 +5,15 @@ import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import WhatsAppContact from "@/components/Chatbot"
 import Testimonials from "@/components/Testimonials"
-import ServicesSection from "@/components/ServicesSection"
 import PackersMovers from "../PackersMovers/PackersMovers"
 import ContactSection from "../contact page/ContactSection"
 import StatsCounter from "@/components/StatsCounter"
 import WhatsAppQuoteButton from "@/components/WhatsAppQuoteButton"
+import FAQSection from "../home page/FAQSection"
 
 interface ProcessStep {
   title: string;
   description: string;
-}
-
-interface FAQ {
-  question: string;
-  answer: string;
 }
 
 interface ServiceTemplateProps {
@@ -29,7 +24,6 @@ interface ServiceTemplateProps {
   description: string[];
   features: string[];
   process: ProcessStep[];
-  faqs: FAQ[];
 }
 
 export default function ServiceTemplate({
@@ -40,7 +34,6 @@ export default function ServiceTemplate({
   description,
   features,
   process,
-  faqs
 }: ServiceTemplateProps) {
   const featuresRef = useRef<HTMLDivElement>(null)
 
@@ -180,7 +173,7 @@ export default function ServiceTemplate({
       <section ref={featuresRef} className="py-16 bg-primary/5">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">Key Features</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
               <motion.div 
                 key={index}
@@ -202,10 +195,10 @@ export default function ServiceTemplate({
 
       {/* Our Process */}
       <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-3xl font-bold mb-12 text-center">Our Process</h2>
           <div className="relative">
-            {/* Timeline line */}
+            {/* Timeline line - only shown on md and above */}
             <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform -translate-x-1/2"></div>
             
             <div className="space-y-12">
@@ -216,16 +209,30 @@ export default function ServiceTemplate({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center`}
+                  className="flex items-start"
                 >
-                  <div className={`md:w-1/2 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:pl-12'} mb-4 md:mb-0`}>
-                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground">{step.description}</p>
+                  {/* Mobile layout - stacked vertically with number at top */}
+                  <div className="md:hidden flex flex-col items-center w-full">
+                    <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold mb-4">
+                      {index + 1}
+                    </div>
+                    <div className="text-center w-full">
+                      <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground">{step.description}</p>
+                    </div>
                   </div>
-                  <div className="md:w-8 md:h-8 bg-primary rounded-full z-10 relative flex items-center justify-center text-white font-bold">
-                    {index + 1}
+                  
+                  {/* Desktop layout - horizontal with alternating sides */}
+                  <div className={`hidden md:flex w-full ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} items-center`}>
+                    <div className={`w-1/2 ${index % 2 === 0 ? 'text-right pr-12' : 'pl-12'}`}>
+                      <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground">{step.description}</p>
+                    </div>
+                    <div className="w-8 h-8 bg-primary rounded-full z-10 flex items-center justify-center text-white font-bold">
+                      {index + 1}
+                    </div>
+                    <div className="w-1/2"></div>
                   </div>
-                  <div className="md:w-1/2"></div>
                 </motion.div>
               ))}
             </div>
@@ -234,26 +241,7 @@ export default function ServiceTemplate({
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 bg-primary/5">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
-          <div className="max-w-3xl mx-auto space-y-6">
-            {faqs.map((faq, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-lg shadow-md"
-              >
-                <h3 className="text-xl font-bold mb-2">{faq.question}</h3>
-                <p className="text-muted-foreground">{faq.answer}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <FAQSection />
 
       {/* CTA Section */}
       <section className="py-16 bg-primary text-white">
@@ -272,9 +260,9 @@ export default function ServiceTemplate({
               Get a Free Quote
             </WhatsAppQuoteButton>
             <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white/30 hover:bg-white/10" 
+              size="lg"
+              variant="outline"
+              className="bg-white/10 text-white border-white/30 hover:bg-white/20"
               asChild
             >
               <a href="/contact">Contact Us</a>
@@ -283,16 +271,8 @@ export default function ServiceTemplate({
         </div>
       </section>
 
-      {/* Additional Services */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-12 text-center">Our Other Services</h2>
-          <ServicesSection />
-        </div>
-      </section>
-
       {/* Testimonials Section */}
-      <Testimonials />
+      <section className="mt-8"><Testimonials /></section>
 
       {/* Stats Counter */}
       <StatsCounter />

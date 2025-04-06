@@ -17,11 +17,7 @@ export default function CommercialMoving() {
         "Minimal disruption to daily business operations",
         "Specialized equipment for moving office furniture and equipment",
         "IT and technology relocation services including disconnection and setup",
-        "Secure handling of sensitive documents and data",
-        "Furniture installation and workspace setup",
-        "Proper disposal or recycling of unwanted items",
-        "After-hours and weekend moving options",
-        "Employee relocation assistance if needed",
+        
       ]}
       process={[
         {
@@ -47,24 +43,6 @@ export default function CommercialMoving() {
         {
           title: "Setup & Post-Move Support",
           description: "We set up furniture and equipment at the new location and provide post-move support",
-        },
-      ]}
-      faqs={[
-        {
-          question: "How do you handle IT equipment during a commercial move?",
-          answer: "Our team includes specialists trained in handling IT equipment. We carefully disconnect, pack, transport, and reconnect your technology systems following industry best practices to ensure data integrity and minimize downtime.",
-        },
-        {
-          question: "Can you move our office during non-business hours?",
-          answer: "Yes, we specialize in after-hours and weekend commercial moves to minimize disruption to your business operations. Many of our clients prefer this option to ensure they're operational during regular business hours.",
-        },
-        {
-          question: "How do you ensure confidential documents remain secure during a move?",
-          answer: "We use secure, lockable containers for sensitive documents and can provide chain-of-custody documentation if required. Our team is trained in handling confidential materials with appropriate discretion.",
-        },
-        {
-          question: "Can you help with furniture installation at our new office?",
-          answer: "Yes, we offer complete furniture installation services including assembly of new furniture, cubicle setup, and placement according to your office plan. We can also coordinate with your furniture vendors if needed.",
         },
       ]}
     />

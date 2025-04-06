@@ -18,11 +18,6 @@ export default function ResidentialRelocation() {
         "Full-service packing and unpacking options",
         "Specialized handling for valuable and sentimental items",
         "Furniture disassembly and reassembly services",
-        "Appliance disconnection and reconnection assistance",
-        "Secure transportation with properly equipped moving vehicles",
-        "Storage solutions if your new home isn't ready yet",
-        "Moving insurance options for added peace of mind",
-        "Pet and plant transportation assistance",
       ]}
       process={[
         {
@@ -46,24 +41,7 @@ export default function ResidentialRelocation() {
           description: "We place items in their designated rooms, reassemble furniture, and help set up your new home",
         },
       ]}
-      faqs={[
-        {
-          question: "How do you ensure the safety of my belongings during a residential move?",
-          answer: "We use high-quality packing materials, proper loading techniques, and secure transportation methods. Additionally, all our movers are professionally trained in proper handling procedures.",
-        },
-        {
-          question: "Can you help with moving special items like plants or pets?",
-          answer: "Yes, we can provide guidance on moving plants and pets. For certain pets, we recommend keeping them with you during the move, but we can advise on the best practices for their relocation.",
-        },
-        {
-          question: "Do you offer weekend or evening moves for residential relocations?",
-          answer: "Yes, we understand that many customers prefer weekend or evening moves to minimize disruption to work schedules. We offer flexible timing options subject to availability.",
-        },
-        {
-          question: "What if my new home isn't ready on the scheduled moving day?",
-          answer: "We offer temporary storage solutions if your new home isn't ready. Your belongings can be securely stored in our facility until your new residence is available.",
-        },
-      ]}
+      
     />
   );
 }

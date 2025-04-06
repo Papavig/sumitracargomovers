@@ -13,20 +13,20 @@ const steps: ProcessStep[] = [
 
 export const ProcessSection: React.FC = () => {
   return (
-    <div className="mb-16 px-4 md:px-6 flex justify-center">
+    <div className="mt-12 mb-6 px-3 md:px-6 flex justify-center">
       <div className="container">
         <motion.h2 
-          className="text-3xl font-bold text-center mb-8 md:mb-12 text-primary"
+          className="text-2xl md:text-3xl font-bold text-center mb-5 md:mb-12 text-primary"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          How It Works?
+          How We Make Your Move Easier?
         </motion.h2>
         
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 justify-center"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 px-8 md:gap-8 justify-center"
           variants={staggerChildren}
           initial="hidden"
           whileInView="visible"
@@ -35,19 +35,19 @@ export const ProcessSection: React.FC = () => {
           {steps.map((step, index) => (
             <motion.div 
               key={index} 
-              className="text-center p-6 bg-card rounded-lg shadow-md hover:shadow-lg transition-shadow mx-auto w-full max-w-xs md:max-w-none"
+              className="text-center p-3 md:p-6 bg-card rounded-lg shadow-md hover:shadow-lg transition-shadow mx-auto w-full"
               variants={fadeInUp}
               whileHover={{ 
-                y: -10, 
+                y: -5, 
                 boxShadow: "0 10px 25px rgba(0,0,0,0.1)" 
               }}
               transition={{ duration: 0.3 }}
             >
-              <div className="inline-block p-4 bg-primary/10 rounded-full mb-4">
-                <step.icon className="w-8 h-8 text-primary" />
+              <div className="inline-block p-2 md:p-4 bg-primary/10 rounded-full mb-2 md:mb-4">
+                <step.icon className="w-5 h-5 md:w-8 md:h-8 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-2 text-primary">{step.title}</h3>
-              <p className="text-muted-foreground text-sm md:text-base">{step.description}</p>
+              <h3 className="text-sm md:text-xl font-bold mb-1 md:mb-2 text-primary">{step.title}</h3>
+              <p className="text-muted-foreground text-xs md:text-base">{step.description}</p>
             </motion.div>
           ))}
         </motion.div>
